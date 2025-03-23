@@ -1,5 +1,7 @@
 # Frontend
 
+The project is hosted on https://send-a-secret.web.app.
+
 ## Running the project locally
 
 ```bash
