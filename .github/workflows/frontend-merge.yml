@@ -34,6 +34,6 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SEND_A_SECRET }}
           channelId: live
           projectId: send-a-secret
-          entryPoint: frontend/firebase.json
+          entryPoint: frontend
         env:
           FIREBASE_CLI_EXPERIMENTS: webframeworks
