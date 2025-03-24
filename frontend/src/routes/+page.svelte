@@ -1,2 +1,8 @@
-<h1>Welcome to SvelteKit - TESTING TESTING TESTING</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script>
+	import '../app.css';
+</script>
+
+<div class="flex items-center justify-center h-screen gap-2">
+	<input type="text" placeholder="Enter secret..." class="input" />
+	<button class="btn btn-soft btn-primary">Generate link</button>
+</div>
