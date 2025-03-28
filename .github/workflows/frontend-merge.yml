@@ -35,5 +35,6 @@ jobs:
           channelId: live
           projectId: send-a-secret
           entryPoint: frontend
+          firebaseToolsVersion: 13.35.1
         env:
           FIREBASE_CLI_EXPERIMENTS: webframeworks
