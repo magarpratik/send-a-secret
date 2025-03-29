@@ -9,13 +9,10 @@
 <div class="fixed top-0 z-10 w-full py-5 text-center">
 	<h1 class="text-3xl font-bold text-gray-400">Send a secret!</h1>
 	<p class="text-gray-600">Send secrets securely using a one-time-use link</p>
-</div>
-
-<div class="fixed top-0 right-0 z-20 p-5">
 	<a
 		href="https://github.com/magarpratik/send-a-secret"
 		target="_blank"
-		class="font-semibold text-blue-600 hover:text-blue-800"
+		class="text-sm text-blue-700 hover:text-blue-800"
 	>
 		GitHub
 	</a>
