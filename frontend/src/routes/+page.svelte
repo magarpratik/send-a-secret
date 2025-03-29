@@ -6,8 +6,8 @@
 	}
 </script>
 
-<div class="fixed top-0 z-10 w-full py-20 text-center">
-	<h1 class="text-4xl font-bold text-gray-400">Send a secret!</h1>
+<div class="fixed top-0 z-10 w-full py-5 text-center">
+	<h1 class="text-3xl font-bold text-gray-400">Send a secret!</h1>
 	<p class="text-gray-600">Send secrets securely using a one-time-use link</p>
 </div>
 
