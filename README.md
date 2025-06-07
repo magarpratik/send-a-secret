@@ -2,7 +2,7 @@
 
 No more sending secrets over email, Slack message or a Teams chat!
 
-**Send a Secret!** let you share sensitive information securely by generating a one-time-use link.
+**Send a Secret!** lets you share sensitive information securely by generating a one-time-use link.
 
 ## Why use Send a Secret?
 
