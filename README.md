@@ -1,5 +1,7 @@
 # 🚀 Send a Secret!
 
+[![CI](https://github.com/magarpratik/send-a-secret/actions/workflows/frontend-merge.yml/badge.svg)](https://github.com/magarpratik/send-a-secret/actions/workflows/frontend-merge.yml)
+
 No more sending secrets over email, Slack message or a Teams chat!
 
 **Send a Secret!** lets you share sensitive information securely by generating a one-time-use link.
