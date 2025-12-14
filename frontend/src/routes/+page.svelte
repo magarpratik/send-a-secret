@@ -2,7 +2,7 @@
 	import { onDestroy } from 'svelte';
 	import '../app.css';
 
-	let secret = '';
+	let secret = $state('');
 
 	onDestroy(() => {
 		secret = '';
@@ -43,7 +43,7 @@
 		autocapitalize="off"
 		spellcheck="false"
 	></textarea>
-	<button class="btn btn-soft btn-primary" on:click={generateLink} disabled={!secret}
+	<button class="btn btn-soft btn-primary" onclick={generateLink} disabled={!secret}
 		>Generate link</button
 	>
 </div>
