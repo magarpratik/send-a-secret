@@ -1,8 +1,25 @@
 <script>
+	import { onDestroy } from 'svelte';
 	import '../app.css';
+
+	let secret = '';
+
+	onDestroy(() => {
+		secret = '';
+	});
 
 	function showComingSoon() {
 		alert('Features coming soon...');
+	}
+
+	function generateLink() {
+		if (!secret) return;
+
+		showComingSoon();
+
+		// TODO: encrypt secret, send to backend and generate link
+
+		secret = '';
 	}
 </script>
 
@@ -12,13 +29,21 @@
 	<a
 		href="https://github.com/magarpratik/send-a-secret"
 		target="_blank"
-		class="text-sm text-blue-700 hover:text-blue-800"
+		class="text-sm text-blue-700 hover:text-blue-800">GitHub</a
 	>
-		GitHub
-	</a>
 </div>
 
 <div class="flex h-screen flex-col items-center justify-center gap-2 sm:flex-row sm:gap-4">
-	<textarea class="textarea" placeholder="Enter secret..."></textarea>
-	<button class="btn btn-soft btn-primary" on:click={showComingSoon}>Generate link</button>
+	<textarea
+		class="textarea"
+		bind:value={secret}
+		placeholder="Enter secret..."
+		autocorrect="off"
+		autocomplete="off"
+		autocapitalize="off"
+		spellcheck="false"
+	></textarea>
+	<button class="btn btn-soft btn-primary" on:click={generateLink} disabled={!secret}
+		>Generate link</button
+	>
 </div>
