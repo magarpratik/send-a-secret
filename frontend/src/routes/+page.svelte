@@ -43,9 +43,5 @@
 		autocapitalize="off"
 		spellcheck="false"
 	></textarea>
-	<!-- svelte-ignore event_directive_deprecated -->
-	<!-- CSP-safe: avoid inline onclick -->
-	<button class="btn btn-soft btn-primary" on:click={generateLink} disabled={!secret}
-		>Generate link</button
-	>
+	<button class="btn btn-primary" onclick={generateLink} disabled={!secret}>Generate link</button>
 </div>
