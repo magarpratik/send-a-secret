@@ -17,9 +17,9 @@ const config = {
 			directives: {
 				'default-src': ['none'],
 				'script-src': ['self'],
-				'style-src': ['self', 'unsafe-hashes'],
+				'style-src': ['self'],
 				'connect-src': ['self'],
-				'img-src': ['self', 'data:'],
+				'img-src': ['self'],
 				'base-uri': ['none'],
 				'form-action': ['none'],
 				'frame-ancestors': ['none']

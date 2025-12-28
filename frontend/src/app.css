@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@plugin "daisyui";
 
 .sveltekit-body {
 	display: contents;
