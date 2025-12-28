@@ -16,8 +16,8 @@ const config = {
 			mode: 'auto',
 			directives: {
 				'default-src': ['none'],
-				'script-src': ['self'],
-				'style-src': ['self'],
+				'script-src': ['self', 'unsafe-hashes'],
+				'style-src': ['self', 'data:'],
 				'connect-src': ['self'],
 				'img-src': ['self'],
 				'base-uri': ['none'],
