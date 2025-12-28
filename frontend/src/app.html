@@ -2,25 +2,12 @@
 <html lang="en">
 	<head>
 		<meta name="referrer" content="no-referrer" />
-		<meta
-			http-equiv="Content-Security-Policy"
-			content="
-				default-src 'none';
-				script-src 'self';
-				connect-src 'self';
-				style-src 'self';
-				img-src 'self';
-				base-uri 'none';
-				form-action 'none';
-				frame-ancestors 'none';
-				"
-		/>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="off">
-		<div style="display: contents">%sveltekit.body%</div>
+		<div class="sveltekit-body">%sveltekit.body%</div>
 	</body>
 </html>
