@@ -16,10 +16,10 @@ const config = {
 			mode: 'auto',
 			directives: {
 				'default-src': ['none'],
-				'script-src': ['self', 'unsafe-hashes'],
-				'style-src': ['self', 'data:'],
+				'script-src': ['self'],
+				'style-src': ['self', 'unsafe-hashes'],
 				'connect-src': ['self'],
-				'img-src': ['self'],
+				'img-src': ['self', 'data:'],
 				'base-uri': ['none'],
 				'form-action': ['none'],
 				'frame-ancestors': ['none']
