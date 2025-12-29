@@ -27,7 +27,7 @@
 	<div class="fixed top-0 z-10 w-full bg-gray-900/90 py-5 text-center backdrop-blur-sm">
 		<h1 class="mb-1 text-3xl font-bold text-gray-200">Send a secret!</h1>
 		<p class="font-light text-gray-400">
-			Share secrets with end-to-end encryption using a one-time link
+			Share secrets with end-to-end encryption using self-destructing links
 		</p>
 		<a
 			href="https://github.com/magarpratik/send-a-secret"
