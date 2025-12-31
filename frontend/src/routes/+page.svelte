@@ -24,7 +24,7 @@
 </script>
 
 <div class="flex min-h-screen flex-col items-center bg-gray-900 px-4 py-8">
-	<div class="text-center">
+	<div class="mb-4 text-center">
 		<h1 class="text-2xl font-bold text-gray-200 sm:text-3xl">Send a secret!</h1>
 		<p class="text-sm font-light text-gray-400 sm:text-base">
 			Share secrets securely using self-destructing links
@@ -37,7 +37,7 @@
 	</div>
 
 	<div
-		class="flex w-full max-w-lg flex-1 flex-col items-center justify-center space-y-6 pb-20 sm:pb-40"
+		class="flex w-full max-w-lg flex-1 flex-col items-center justify-center space-y-6 pb-20 sm:pb-50"
 	>
 		<div class="w-full space-y-4">
 			<textarea
