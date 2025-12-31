@@ -23,10 +23,10 @@
 	}
 </script>
 
-<div class="min-h-screen flex flex-col items-center bg-gray-900 px-4 py-8">
+<div class="flex min-h-screen flex-col items-center bg-gray-900 px-4 py-8">
 	<div class="text-center">
-		<h1 class="text-2xl sm:text-3xl font-bold text-gray-200">Send a secret!</h1>
-		<p class="text-sm sm:text-base font-light text-gray-400">
+		<h1 class="text-2xl font-bold text-gray-200 sm:text-3xl">Send a secret!</h1>
+		<p class="text-sm font-light text-gray-400 sm:text-base">
 			Share secrets securely using self-destructing links
 		</p>
 		<a
@@ -35,13 +35,15 @@
 			class="text-xs text-blue-400 hover:text-blue-300">GitHub</a
 		>
 	</div>
-	
-	<div class="flex flex-col items-center justify-center flex-1 w-full max-w-lg space-y-6 pb-20 sm:pb-40">
+
+	<div
+		class="flex w-full max-w-lg flex-1 flex-col items-center justify-center space-y-6 pb-20 sm:pb-40"
+	>
 		<div class="w-full space-y-4">
 			<textarea
 				bind:value={secret}
 				placeholder="Enter secret..."
-				class="h-36 sm:h-48 w-full resize-none rounded-lg border border-gray-600 bg-gray-800 p-4 leading-relaxed text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+				class="h-36 w-full resize-none rounded-lg border border-gray-600 bg-gray-800 p-4 leading-relaxed text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:outline-none sm:h-48"
 				autocorrect="off"
 				autocomplete="off"
 				autocapitalize="off"
@@ -56,7 +58,7 @@
 				Generate link
 			</button>
 		</div>
-		
+
 		<div class="w-full">
 			<div class="mb-2 flex items-center gap-2">
 				<svg class="h-4 w-4 flex-shrink-0 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
