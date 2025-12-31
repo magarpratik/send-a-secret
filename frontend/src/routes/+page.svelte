@@ -23,27 +23,25 @@
 	}
 </script>
 
-<div class="relative min-h-screen bg-gray-900">
-	<div class="fixed top-0 z-10 w-full bg-gray-900/90 py-5 text-center backdrop-blur-sm">
-		<h1 class="mb-1 text-3xl font-bold text-gray-200">Send a secret!</h1>
-		<p class="font-light text-gray-400">Share secrets securely using self-destructing links</p>
+<div class="min-h-screen flex flex-col items-center bg-gray-900 px-4 py-8">
+	<div class="text-center">
+		<h1 class="text-2xl sm:text-3xl font-bold text-gray-200">Send a secret!</h1>
+		<p class="text-sm sm:text-base font-light text-gray-400">
+			Share secrets securely using self-destructing links
+		</p>
 		<a
 			href="https://github.com/magarpratik/send-a-secret"
 			target="_blank"
-			class="mt-1 inline-block text-sm text-blue-400 hover:text-blue-300">GitHub</a
+			class="text-xs text-blue-400 hover:text-blue-300">GitHub</a
 		>
 	</div>
-
-	<div
-		class="absolute top-1/2 left-1/2 w-full max-w-lg -translate-x-1/2 -translate-y-1/2 transform px-4"
-	>
-		<div class="space-y-4">
-			<label for="secret" class="sr-only">Secret message</label>
+	
+	<div class="flex flex-col items-center justify-center flex-1 w-full max-w-lg space-y-6 pb-20 sm:pb-40">
+		<div class="w-full space-y-4">
 			<textarea
-				id="secret"
-				class="h-48 w-full resize-none rounded-lg border border-gray-600 bg-gray-800 p-4 leading-relaxed text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
 				bind:value={secret}
 				placeholder="Enter secret..."
+				class="h-36 sm:h-48 w-full resize-none rounded-lg border border-gray-600 bg-gray-800 p-4 leading-relaxed text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
 				autocorrect="off"
 				autocomplete="off"
 				autocapitalize="off"
@@ -51,15 +49,15 @@
 			></textarea>
 
 			<button
-				class="w-full rounded-lg bg-indigo-500 px-6 py-2 text-white shadow-sm transition-colors duration-200 hover:bg-indigo-600 hover:shadow-md disabled:cursor-not-allowed disabled:bg-gray-700 disabled:text-gray-400"
 				onclick={generateLink}
 				disabled={!secret}
+				class="w-full rounded-lg bg-indigo-500 py-2 text-white shadow-sm transition-colors duration-200 hover:bg-indigo-600 disabled:cursor-not-allowed disabled:bg-gray-700 disabled:text-gray-400"
 			>
 				Generate link
 			</button>
 		</div>
-
-		<div class="mt-6">
+		
+		<div class="w-full">
 			<div class="mb-2 flex items-center gap-2">
 				<svg class="h-4 w-4 flex-shrink-0 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
 					<path
@@ -70,13 +68,11 @@
 				</svg>
 				<h3 class="text-sm font-medium text-gray-400">How it works</h3>
 			</div>
-			<div class="mb-2 px-6">
-				<ol class="list-decimal text-xs text-gray-500">
-					<li>Write your secret</li>
-					<li>Generate a link</li>
-					<li>Share the link with your recipient</li>
-				</ol>
-			</div>
+			<ol class="mb-2 list-decimal pl-6 text-xs text-gray-500">
+				<li>Enter your secret</li>
+				<li>Generate a link</li>
+				<li>Share the link with your recipient</li>
+			</ol>
 			<p class="text-xs text-gray-500">
 				Your secret is encrypted end-to-end — not even we can read it. Once the recipient views it,
 				the secret is deleted forever.
