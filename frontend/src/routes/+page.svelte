@@ -37,7 +37,7 @@
 	</div>
 
 	<div
-		class="flex w-full max-w-lg flex-1 flex-col items-center justify-center space-y-6 pb-20 sm:pb-50"
+		class="flex w-full max-w-lg flex-1 flex-col items-center justify-center space-y-6 pb-20 sm:pb-40"
 	>
 		<div class="w-full space-y-4">
 			<textarea
