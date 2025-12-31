@@ -26,9 +26,7 @@
 <div class="relative min-h-screen bg-gray-900">
 	<div class="fixed top-0 z-10 w-full bg-gray-900/90 py-5 text-center backdrop-blur-sm">
 		<h1 class="mb-1 text-3xl font-bold text-gray-200">Send a secret!</h1>
-		<p class="font-light text-gray-400">
-			Share secrets with end-to-end encryption using self-destructing links
-		</p>
+		<p class="font-light text-gray-400">Share secrets securely using self-destructing links</p>
 		<a
 			href="https://github.com/magarpratik/send-a-secret"
 			target="_blank"
@@ -61,8 +59,8 @@
 			</button>
 		</div>
 
-		<div class="mt-6 text-center">
-			<div class="mb-2 flex items-center justify-center gap-2">
+		<div class="mt-6">
+			<div class="mb-2 flex items-center gap-2">
 				<svg class="h-4 w-4 flex-shrink-0 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
 					<path
 						fill-rule="evenodd"
@@ -72,9 +70,16 @@
 				</svg>
 				<h3 class="text-sm font-medium text-gray-400">How it works</h3>
 			</div>
+			<div class="mb-2 px-6">
+				<ol class="list-decimal text-xs text-gray-500">
+					<li>Write your secret</li>
+					<li>Generate a link</li>
+					<li>Share the link with your recipient</li>
+				</ol>
+			</div>
 			<p class="text-xs text-gray-500">
-				Your secret is encrypted end-to-end — we cannot see it. The recipient can view it once, then
-				it’s permanently deleted.
+				Your secret is encrypted end-to-end — not even we can read it. Once the recipient views it,
+				the secret is deleted forever.
 			</p>
 		</div>
 	</div>
