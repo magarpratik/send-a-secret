@@ -1,6 +1,7 @@
 <script>
 	import { onDestroy } from 'svelte';
 	import '../app.css';
+	import { postSecret } from '$lib';
 
 	let secret = $state('');
 
@@ -8,16 +9,18 @@
 		secret = '';
 	});
 
-	function showComingSoon() {
-		alert('Features coming soon...');
-	}
-
 	function generateLink() {
 		if (!secret) return;
 
-		showComingSoon();
-
-		// TODO: encrypt secret, send to server and generate link
+		postSecret()
+			.then((result) => {
+				/** @type {any} */
+				const data = result.data;
+				alert(`secret id: ${data.secretId}`);
+			})
+			.catch(() => {
+				alert('Failed to store secret');
+			});
 
 		secret = '';
 	}
