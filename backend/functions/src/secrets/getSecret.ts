@@ -1,13 +1,7 @@
-import { onRequest } from "firebase-functions/https";
+import { onCall } from "firebase-functions/https";
 import * as logger from "firebase-functions/logger";
-import type { Response } from "express";
 
-export const getSecret = onRequest(
-  {
-    region: "europe-west1",
-  },
-  (_, res: Response) => {
-    logger.info("inside getSecret");
-    res.send("hello from getSecret!");
-  },
-);
+export const getSecret = onCall(() => {
+  logger.info("inside getSecret");
+  return { message: "hello from getSecret!" };
+});
