@@ -1,6 +1,8 @@
 # 🚀 Send a Secret!
 
-[![CI](https://github.com/magarpratik/send-a-secret/actions/workflows/frontend-merge.yml/badge.svg)](https://github.com/magarpratik/send-a-secret/actions/workflows/frontend-merge.yml)
+[![Frontend CI](https://github.com/magarpratik/send-a-secret/actions/workflows/frontend-merge.yml/badge.svg)](https://github.com/magarpratik/send-a-secret/actions/workflows/frontend-merge.yml)
+
+[![Backend CI](https://github.com/magarpratik/send-a-secret/actions/workflows/backend-merge.yml/badge.svg)](https://github.com/magarpratik/send-a-secret/actions/workflows/backend-merge.yml)
 
 No more sending secrets over email, Slack message or a Teams chat!
 
