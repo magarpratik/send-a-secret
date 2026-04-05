@@ -10,7 +10,7 @@ describe("GET secret", () => {
 
     expect(response.status).toBe(200);
     expect(response.body.result).toStrictEqual({
-      message: "Hello from getSecret!",
+      ciphertext: "encrypted-secret",
     });
   });
 });

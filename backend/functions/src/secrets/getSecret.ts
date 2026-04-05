@@ -3,5 +3,5 @@ import * as logger from "firebase-functions/logger";
 
 export const getSecret = onCall(() => {
   logger.info("inside getSecret");
-  return { message: "Hello from getSecret!" };
+  return { ciphertext: "encrypted-secret" };
 });
