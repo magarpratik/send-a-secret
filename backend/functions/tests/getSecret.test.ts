@@ -6,8 +6,11 @@ const FUNCTION_URL =
 
 describe("GET secret", () => {
   test("success", async () => {
-    const response = await request(FUNCTION_URL).get("/");
+    const response = await request(FUNCTION_URL).post("/").send({ data: {} });
+
     expect(response.status).toBe(200);
-    expect(response.text).toBe("hello from getSecret!");
+    expect(response.body.result).toStrictEqual({
+      message: "Hello from getSecret!",
+    });
   });
 });
