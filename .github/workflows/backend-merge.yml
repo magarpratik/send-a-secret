@@ -44,7 +44,7 @@ jobs:
           GOOGLE_APPLICATION_CREDENTIALS: credentials.json
 
       - name: Set cleanup policy
-        run: firebase functions:artifacts:setpolicy --location europe-west1 --max-age 1d --max-number 1
+        run: firebase functions:artifacts:setpolicy --location europe-west1 --days 1
         env:
           GOOGLE_APPLICATION_CREDENTIALS: credentials.json
 
