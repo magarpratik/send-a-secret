@@ -18,8 +18,8 @@ const config = {
 				'default-src': ['none'],
 				'script-src': ['self'],
 				'style-src': ['self'],
-				'connect-src': ['self'],
 				'img-src': ['self'],
+				'connect-src': ['self', 'https://europe-west1-send-a-secret.cloudfunctions.net'],
 				'base-uri': ['none'],
 				'form-action': ['none'],
 				'frame-ancestors': ['none']
