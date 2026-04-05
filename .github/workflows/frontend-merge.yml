@@ -1,4 +1,4 @@
-name: CI
+name: Frontend live deploy
 
 on:
   push:
