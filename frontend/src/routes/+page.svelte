@@ -17,7 +17,7 @@
 
 		showComingSoon();
 
-		// TODO: encrypt secret, send to server and generate link
+		// TODO: encrypt secret, send to backend and generate link
 
 		secret = '';
 	}
