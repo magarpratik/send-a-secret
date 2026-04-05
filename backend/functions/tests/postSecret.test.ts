@@ -8,6 +8,6 @@ describe("POST secret", () => {
   test("success", async () => {
     const response = await request(FUNCTION_URL).post("/");
     expect(response.status).toBe(200);
-    expect(response.text).toBe("Hello from postSecret!");
+    expect(response.text).toBe("hello from postSecret!");
   });
 });

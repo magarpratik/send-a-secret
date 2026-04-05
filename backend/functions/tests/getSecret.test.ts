@@ -8,6 +8,6 @@ describe("GET secret", () => {
   test("success", async () => {
     const response = await request(FUNCTION_URL).get("/");
     expect(response.status).toBe(200);
-    expect(response.text).toBe("Hello from getSecret!");
+    expect(response.text).toBe("hello from getSecret!");
   });
 });

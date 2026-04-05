@@ -35,7 +35,14 @@ jobs:
       - name: Install Firebase CLI
         run: npm install -g firebase-tools
 
+      - name: Set up credentials
+        run: echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SEND_A_SECRET }}' > credentials.json
+
       - name: Deploy Firebase Functions
         run: npm run deploy
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SEND_A_SECRET }}
+          GOOGLE_APPLICATION_CREDENTIALS: credentials.json
+
+      - name: Remove credentials
+        if: always()
+        run: rm -f credentials.json
