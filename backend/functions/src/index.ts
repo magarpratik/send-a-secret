@@ -7,5 +7,5 @@ setGlobalOptions({
   timeoutSeconds: 30,
 });
 
-export { postSecret } from "./secrets/postSecret";
-export { getSecret } from "./secrets/getSecret";
+export * from "./secrets/postSecret";
+export * from "./secrets/getSecret";
