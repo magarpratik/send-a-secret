@@ -37,20 +37,16 @@ jobs:
 
       - name: Run tests
         run: npm test
-
-      - name: Set up credentials
-        run: echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SEND_A_SECRET }}' > credentials.json
+        
+      - name: Authenticate to Google
+        uses: google-github-actions/auth@v3
+        with:
+          credentials_json: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SEND_A_SECRET }}'
+          create_credentials_file: true
+          cleanup_credentials: true
 
       - name: Deploy Firebase Functions
         run: npm run deploy
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: credentials.json
 
       - name: Set cleanup policy
         run: firebase functions:artifacts:setpolicy --location europe-west1 --days 1
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: credentials.json
-
-      - name: Remove credentials
-        if: always()
-        run: rm -f credentials.json

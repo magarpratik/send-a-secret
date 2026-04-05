@@ -8,6 +8,6 @@ export const getSecret = onRequest(
   },
   (_, res: Response) => {
     logger.info("inside getSecret");
-    res.send("Hello from getSecret!");
+    res.send("hello from getSecret!");
   },
 );
