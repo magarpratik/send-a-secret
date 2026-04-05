@@ -5,8 +5,8 @@ setGlobalOptions({
   minInstances: 0,
   maxInstances: 5,
   timeoutSeconds: 30,
-  invoker: "private",
-  ingressSettings: "ALLOW_INTERNAL_AND_GCLB",
+  // invoker: "private",
+  // ingressSettings: "ALLOW_INTERNAL_AND_GCLB",
 });
 
 export * from "./secrets/postSecret";
