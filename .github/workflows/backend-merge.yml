@@ -43,6 +43,11 @@ jobs:
         env:
           GOOGLE_APPLICATION_CREDENTIALS: credentials.json
 
+      - name: Set cleanup policy
+        run: firebase functions:artifacts:setpolicy --location europe-west1 --max-age 1d --max-number 1
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: credentials.json
+
       - name: Remove credentials
         if: always()
         run: rm -f credentials.json

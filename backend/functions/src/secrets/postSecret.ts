@@ -8,6 +8,6 @@ export const postSecret = onRequest(
   },
   (_, res: Response) => {
     logger.info("inside postSecret");
-    res.send("hello from postSecret!");
+    res.send("Hello from postSecret!");
   },
 );
