@@ -4,5 +4,5 @@ import type { Request, Response } from "express";
 
 export const postSecret = onRequest((req: Request, res: Response) => {
   logger.info("inside postSecret");
-  res.send("Hello from postSecret!");
+  res.send("hello from postSecret!");
 });
