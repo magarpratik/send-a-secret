@@ -17,11 +17,17 @@
 	async function generateLink() {
 		if (!secret) return;
 
-		try {
-			loading = true;
+		loading = true;
 
-			const { data } = await postSecret();
-			link = `${window.location.origin}/s/${data.secretId}`;
+		// TODO: generate random encryption key
+		const encryptionKey = 'encryption-key';
+
+		// TODO: encrypt secret using the generated key
+		const encryptedSecret = 'encrypted-secret-123';
+
+		try {
+			const { data } = await postSecret({ ciphertext: encryptedSecret });
+			link = `${window.location.origin}/s/${data.secretId}#${encryptionKey}`;
 		} catch {
 			errorMessage = 'Failed to generate link. Please try again.';
 		} finally {
@@ -37,6 +43,12 @@
 		<p class="text-sm font-light text-gray-400 sm:text-base">
 			Share secrets securely using self-destructing links
 		</p>
+		<div
+			class="rounded border border-yellow-500 bg-yellow-600/20 p-2 text-xs text-yellow-200 sm:text-sm"
+		>
+			⚠️ This app is under active development. Secrets may not be fully secure. Use at your own
+			risk.
+		</div>
 		<a
 			href="https://github.com/magarpratik/send-a-secret"
 			target="_blank"
