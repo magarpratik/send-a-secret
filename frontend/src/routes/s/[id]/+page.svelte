@@ -19,7 +19,6 @@
 
 	onMount(async () => {
 		const secretId = page.params.id;
-
 		if (!secretId) return;
 
 		try {
@@ -67,12 +66,12 @@
 		{:else if !secretExists}
 			<p class="text-red-400">This secret does not exist or has already been viewed.</p>
 		{:else if secret}
-			<div class="w-full space-y-2">
-				<div
-					class="w-full rounded-lg border border-gray-600 bg-gray-800 p-4 break-words text-white"
-				>
-					{secret}
-				</div>
+			<div class="w-full space-y-4">
+				<textarea
+					readonly
+					class="h-36 w-full resize-none rounded-lg border border-gray-600 bg-gray-800 p-4 text-white sm:h-48"
+					value={secret}
+				></textarea>
 				<button
 					onclick={() => {
 						navigator.clipboard.writeText(secret);
@@ -91,13 +90,13 @@
 		{:else}
 			<button
 				onclick={async () => {
+					const secretId = page.params.id;
+					if (!secretId) return;
+
 					getSecretLoading = true;
 					errorMessage = '';
 
 					try {
-						const secretId = page.params.id;
-						if (!secretId) return;
-
 						const { data } = await getSecret({ secretId });
 						secret = data.ciphertext;
 					} catch {
