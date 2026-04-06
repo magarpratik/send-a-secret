@@ -10,10 +10,13 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-initializeAppCheck(app, {
-	provider: new ReCaptchaEnterpriseProvider('6LfF06gsAAAAAK35ipORkrJ2P25OmcDF7ZtQL1hi'),
-	isTokenAutoRefreshEnabled: true
-});
+
+if (typeof window !== 'undefined') {
+	initializeAppCheck(app, {
+		provider: new ReCaptchaEnterpriseProvider('6LfF06gsAAAAAK35ipORkrJ2P25OmcDF7ZtQL1hi'),
+		isTokenAutoRefreshEnabled: true
+	});
+}
 
 const functions = getFunctions(app, 'europe-west1');
 
