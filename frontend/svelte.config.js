@@ -16,7 +16,7 @@ const config = {
 			mode: 'auto',
 			directives: {
 				'default-src': ['none'],
-				'script-src': ['self'],
+				'script-src': ['self', 'https://www.google.com', 'https://www.gstatic.com'],
 				'style-src': ['self'],
 				'img-src': ['self'],
 				'connect-src': ['self', 'https://europe-west1-send-a-secret.cloudfunctions.net'],
