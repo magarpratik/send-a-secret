@@ -1,10 +1,10 @@
 import { onCall } from "firebase-functions/https";
 import * as logger from "firebase-functions/logger";
 
-export const postSecret = onCall(
+export const checkSecret = onCall(
   { enforceAppCheck: !process.env.FUNCTIONS_EMULATOR },
   () => {
-    logger.info("inside postSecret");
-    return { secretId: "secret-id-123" };
+    logger.info("inside checkSecret");
+    return { exists: true };
   },
 );
