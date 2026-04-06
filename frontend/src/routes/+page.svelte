@@ -1,7 +1,7 @@
 <script>
 	import { onDestroy } from 'svelte';
 	import '../app.css';
-	import { postSecret } from '$lib';
+	import { storeSecret } from '$lib';
 
 	let secret = $state('');
 	let link = $state('');
@@ -26,7 +26,7 @@
 		const encryptedSecret = 'encrypted-secret-123';
 
 		try {
-			const { data } = await postSecret({ ciphertext: encryptedSecret });
+			const { data } = await storeSecret({ ciphertext: encryptedSecret });
 			link = `${window.location.origin}/s/${data.secretId}#${encryptionKey}`;
 		} catch {
 			errorMessage = 'Failed to generate link. Please try again.';
