@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app';
+import { initializeAppCheck, ReCaptchaEnterpriseProvider } from 'firebase/app-check';
 import { getFunctions, httpsCallable } from 'firebase/functions';
 
 const firebaseConfig = {
@@ -9,6 +10,11 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+initializeAppCheck(app, {
+	provider: new ReCaptchaEnterpriseProvider('6LfF06gsAAAAAK35ipORkrJ2P25OmcDF7ZtQL1hi'),
+	isTokenAutoRefreshEnabled: true
+});
+
 const functions = getFunctions(app, 'europe-west1');
 
 export const postSecret = httpsCallable(functions, 'postSecret');
