@@ -20,5 +20,5 @@ if (typeof window !== 'undefined') {
 
 const functions = getFunctions(app, 'europe-west1');
 
-export const postSecret = httpsCallable(functions, 'postSecret');
+export const postSecret = httpsCallable<unknown, { secretId: string }>(functions, 'postSecret');
 export const getSecret = httpsCallable(functions, 'getSecret');
