@@ -2,15 +2,14 @@
 	import { onDestroy } from 'svelte';
 	import '../app.css';
 	import { storeSecret } from '$lib';
+	import CopyButton from '../components/CopyButton.svelte';
+	import ActionButton from '../components/ActionButton.svelte';
 
 	let secret = $state('');
 	let link = $state('');
 
 	let generateLinkLoading = $state(false);
 	let errorMessage = $state('');
-
-	let copied = $state(false);
-	let copyTimeout = $state();
 
 	onDestroy(() => {
 		secret = '';
@@ -72,78 +71,17 @@
 					autocapitalize="off"
 					spellcheck="false"
 				></textarea>
-
-				<button
-					onclick={generateLink}
-					disabled={!secret || generateLinkLoading}
-					class="flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-500 py-2 text-white shadow-sm transition-colors duration-200 hover:bg-indigo-600 not-disabled:active:scale-99 disabled:cursor-not-allowed disabled:bg-gray-700 disabled:text-gray-400"
-				>
-					{#if generateLinkLoading}
-						<svg
-							class="h-5 w-5 animate-spin text-white"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-						>
-							<circle
-								class="opacity-25"
-								cx="12"
-								cy="12"
-								r="10"
-								stroke="currentColor"
-								stroke-width="4"
-							></circle>
-							<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-							></path>
-						</svg>
-						<span>Generating link...</span>
-					{:else}
-						Generate link
-					{/if}
-				</button>
+				<ActionButton
+					onClick={generateLink}
+					loading={generateLinkLoading}
+					disabled={!secret}
+					loadingLabel="Generating link..."
+					label="Generate link"
+				/>
 				<p class="text-sm text-red-400">
 					{errorMessage || '\u00A0'}
 				</p>
 			</div>
-		{:else}
-			<div class="w-full space-y-4">
-				<input
-					class="w-full rounded-lg border border-gray-600 bg-gray-800 p-4 pr-10 text-center text-ellipsis text-white"
-					readonly
-					value={link}
-					title={link}
-				/>
-				<button
-					onclick={() => {
-						navigator.clipboard.writeText(link);
-						copied = true;
-
-						if (copyTimeout) clearTimeout(copyTimeout);
-
-						copyTimeout = setTimeout(() => {
-							copied = false;
-							copyTimeout = null;
-						}, 2000);
-					}}
-					class="w-full rounded-lg bg-indigo-500 py-2 text-white shadow-sm transition-colors duration-200 hover:bg-indigo-600 active:scale-99"
-				>
-					{copied ? 'Copied!' : 'Copy link'}
-				</button>
-				<button
-					onclick={() => {
-						link = '';
-						secret = '';
-						errorMessage = '';
-						copied = false;
-					}}
-					class="mt-2 px-3 text-sm text-indigo-300 duration-200 hover:text-indigo-200"
-				>
-					Send another secret
-				</button>
-			</div>
-		{/if}
-
-		{#if !link}
 			<div class="w-full">
 				<div class="mb-2 flex items-center gap-2">
 					<svg class="h-4 w-4 flex-shrink-0 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
@@ -164,6 +102,26 @@
 					Your secret is encrypted end-to-end — not even we can read it. Once the recipient views
 					it, the secret is deleted forever.
 				</p>
+			</div>
+		{:else}
+			<div class="w-full space-y-4">
+				<input
+					class="w-full rounded-lg border border-gray-600 bg-gray-800 p-4 pr-10 text-center text-ellipsis text-white"
+					readonly
+					value={link}
+					title={link}
+				/>
+				<CopyButton textToCopy={link} label="Copy link" />
+				<button
+					onclick={() => {
+						link = '';
+						secret = '';
+						errorMessage = '';
+					}}
+					class="mt-2 px-3 text-sm text-indigo-300 duration-200 hover:text-indigo-200"
+				>
+					Send another secret
+				</button>
 			</div>
 		{/if}
 	</div>
