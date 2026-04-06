@@ -19,7 +19,12 @@ const config = {
 				'script-src': ['self', 'https://www.google.com'],
 				'style-src': ['self', 'unsafe-inline'],
 				'img-src': ['self'],
-				'connect-src': ['self', 'https://europe-west1-send-a-secret.cloudfunctions.net'],
+				'connect-src': [
+					'self',
+					'https://europe-west1-send-a-secret.cloudfunctions.net',
+					'https://content-firebaseappcheck.googleapis.com',
+					'https://www.google.com/recaptcha/'
+				],
 				'base-uri': ['none'],
 				'form-action': ['none'],
 				'frame-ancestors': ['none'],

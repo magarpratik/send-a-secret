@@ -9,22 +9,20 @@
 		secret = '';
 	});
 
-	function generateLink() {
+	async function generateLink() {
 		if (!secret) return;
 
-		postSecret()
-			.then((result) => {
-				// Read result of the Cloud Function.
-				/** @type {any} */
-				const data = result.data;
-				alert(`secret id: ${data.secretId}`);
-			})
-			.catch((err) => {
-				console.error(err);
-				alert('Failed to store secret');
-			});
-
-		secret = '';
+		try {
+			/** @type {any} */
+			const result = await postSecret();
+			const data = result.data;
+			alert(`secret id: ${data.secretId}`);
+		} catch (err) {
+			console.error(err);
+			alert('Failed to store secret');
+		} finally {
+			secret = '';
+		}
 	}
 </script>
 
