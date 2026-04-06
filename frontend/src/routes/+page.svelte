@@ -43,17 +43,17 @@
 		<p class="text-sm font-light text-gray-400 sm:text-base">
 			Share secrets securely using self-destructing links
 		</p>
+		<a
+			href="https://github.com/magarpratik/send-a-secret"
+			target="_blank"
+			class="text-xs text-blue-400 hover:text-blue-300">GitHub</a
+		>
 		<div
 			class="rounded border border-yellow-500 bg-yellow-600/20 p-2 text-xs text-yellow-200 sm:text-sm"
 		>
 			⚠️ This app is under active development. Secrets may not be fully secure. Use at your own
 			risk.
 		</div>
-		<a
-			href="https://github.com/magarpratik/send-a-secret"
-			target="_blank"
-			class="text-xs text-blue-400 hover:text-blue-300">GitHub</a
-		>
 	</div>
 
 	<div
