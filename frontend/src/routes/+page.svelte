@@ -106,7 +106,7 @@
 		{:else}
 			<div class="w-full space-y-4">
 				<input
-					class="w-full rounded-lg border border-gray-600 bg-gray-800 p-4 pr-10 text-center text-ellipsis text-white"
+					class="w-full rounded-lg border border-gray-600 bg-gray-800 p-4 text-center text-white"
 					readonly
 					value={link}
 					title={link}
