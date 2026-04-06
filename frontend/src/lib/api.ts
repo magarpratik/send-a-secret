@@ -21,8 +21,17 @@ if (browser) {
 
 const functions = getFunctions(app, 'europe-west1');
 
-export const postSecret = httpsCallable<{ ciphertext: string }, { secretId: string }>(
+export const getSecret = httpsCallable<{ secretId: string }, { ciphertext: string }>(
 	functions,
-	'postSecret'
+	'getSecret'
 );
-export const getSecret = httpsCallable(functions, 'getSecret');
+
+export const checkSecret = httpsCallable<{ secretId: string }, { exists: boolean }>(
+	functions,
+	'checkSecret'
+);
+
+export const storeSecret = httpsCallable<{ ciphertext: string }, { secretId: string }>(
+	functions,
+	'storeSecret'
+);
