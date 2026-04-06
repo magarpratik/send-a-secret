@@ -5,8 +5,10 @@
 
 	let secret = $state('');
 	let link = $state('');
+
 	let loading = $state(false);
 	let errorMessage = $state('');
+
 	let copied = $state(false);
 	let copyTimeout = $state();
 
@@ -130,6 +132,7 @@
 					onclick={() => {
 						link = '';
 						secret = '';
+						errorMessage = '';
 						copied = false;
 					}}
 					class="mt-2 px-3 text-sm text-indigo-300 duration-200 hover:text-indigo-200"
