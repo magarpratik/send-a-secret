@@ -4,6 +4,7 @@
 	import { storeSecret } from '$lib';
 	import CopyButton from '../components/CopyButton.svelte';
 	import ActionButton from '../components/ActionButton.svelte';
+	import { encrypt, generateEncryptionKey, toBase64 } from '$lib/crypto';
 
 	let secret = $state('');
 	let link = $state('');
@@ -20,15 +21,16 @@
 
 		generateLinkLoading = true;
 
-		// TODO: generate random encryption key
-		const encryptionKey = 'encryption-key';
-
-		// TODO: encrypt secret using the generated key
-		const encryptedSecret = 'encrypted-secret-123';
-
 		try {
-			const { data } = await storeSecret({ ciphertext: encryptedSecret });
-			link = `${window.location.origin}/s/${data.secretId}#${encryptionKey}`;
+			const keyBytes = generateEncryptionKey();
+			const { ciphertext, iv } = await encrypt(secret, keyBytes);
+
+			const encodedKey = toBase64(keyBytes);
+			const encodedCiphertext = toBase64(ciphertext);
+			const encodedIV = toBase64(iv);
+
+			const { data } = await storeSecret({ ciphertext: encodedCiphertext, iv: encodedIV });
+			link = `${window.location.origin}/s/${data.secretId}#${encodedKey}`;
 		} catch {
 			errorMessage = 'Failed to generate link. Please try again.';
 		} finally {

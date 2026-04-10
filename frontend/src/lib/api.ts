@@ -31,7 +31,7 @@ export const checkSecret = httpsCallable<{ secretId: string }, { exists: boolean
 	'checkSecret'
 );
 
-export const storeSecret = httpsCallable<{ ciphertext: string }, { secretId: string }>(
+export const storeSecret = httpsCallable<{ ciphertext: string; iv: string }, { secretId: string }>(
 	functions,
 	'storeSecret'
 );
