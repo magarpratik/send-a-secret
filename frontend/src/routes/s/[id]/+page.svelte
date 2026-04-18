@@ -13,12 +13,12 @@
 	let secret = $state('');
 	let errorMessage = $state('');
 
-	onDestroy(() => {
-		secret = '';
-	});
-
 	onMount(async () => {
 		await checkSecretExists();
+	});
+
+	onDestroy(() => {
+		secret = '';
 	});
 
 	async function checkSecretExists() {
@@ -39,9 +39,26 @@
 		const secretId = page.params.id;
 		if (!secretId) return;
 
+		const keyBase64 = window.location.hash.slice(1);
+		if (!keyBase64) {
+			errorMessage = 'Missing decryption key.';
+			return;
+		}
+		history.replaceState({}, '', window.location.pathname);
+
 		getSecretLoading = true;
 
 		try {
+			// const {
+			// 	data: { ciphertext, iv }
+			// } = await getSecret({ secretId });
+
+			// const keyBytes = fromBase64(keyBase64);
+			// const ivBytes = fromBase64(iv);
+			// const ciphertextBytes = fromBase64(ciphertext);
+
+			// secret = await decrypt(ciphertextBytes, keyBytes, ivBytes);
+
 			const { data } = await getSecret({ secretId });
 			secret = data.ciphertext;
 		} catch {

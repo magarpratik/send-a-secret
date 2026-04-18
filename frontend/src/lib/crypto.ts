@@ -1,14 +1,3 @@
-export function toBase64(bytes: Uint8Array): string {
-	let binary = '';
-	const len = bytes.length;
-
-	for (let i = 0; i < len; i++) {
-		binary += String.fromCharCode(bytes[i]);
-	}
-
-	return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-}
-
 export function generateEncryptionKey() {
 	return crypto.getRandomValues(new Uint8Array(32));
 }
@@ -26,4 +15,18 @@ export async function encrypt(secret: string, keyBytes: BufferSource) {
 		ciphertext: new Uint8Array(ciphertextBuffer),
 		iv
 	};
+}
+
+export async function decrypt(
+	ciphertext: Uint8Array<ArrayBuffer>,
+	keyBytes: BufferSource,
+	iv: Uint8Array<ArrayBuffer>
+): Promise<string> {
+	const key = await crypto.subtle.importKey('raw', keyBytes, { name: 'AES-GCM' }, false, [
+		'decrypt'
+	]);
+
+	const plainBuffer = await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, ciphertext);
+
+	return new TextDecoder().decode(plainBuffer);
 }

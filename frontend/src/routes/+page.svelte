@@ -1,10 +1,9 @@
 <script>
 	import { onDestroy } from 'svelte';
 	import '../app.css';
-	import { storeSecret } from '$lib';
+	import { storeSecret, encrypt, generateEncryptionKey, toBase64 } from '$lib';
 	import CopyButton from '../components/CopyButton.svelte';
 	import ActionButton from '../components/ActionButton.svelte';
-	import { encrypt, generateEncryptionKey, toBase64 } from '$lib/crypto';
 
 	let secret = $state('');
 	let link = $state('');
