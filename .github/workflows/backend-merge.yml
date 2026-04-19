@@ -51,7 +51,7 @@ jobs:
           create_credentials_file: true
           cleanup_credentials: true
 
-      - name: Deploy Firebase Functions
+      - name: Deploy Firebase backend
         run: npm run deploy
 
       - name: Set cleanup policy
