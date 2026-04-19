@@ -7,7 +7,9 @@ export const checkSecretExists = async (
   const data = snap.data();
 
   const exists =
-    !!data && !data.consumed && data.expiresAt?.toDate?.() > new Date();
+    !!data &&
+    data.consumed === false &&
+    data.expiresAt?.toDate?.() > new Date();
 
   return exists;
 };
