@@ -22,6 +22,12 @@ jobs:
         with:
           node-version: 24
 
+      - name: Setup Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
       - name: Install dependencies
         run: npm ci
 
@@ -37,11 +43,11 @@ jobs:
 
       - name: Run tests
         run: npm run test:ci
-        
+
       - name: Authenticate to Google
         uses: google-github-actions/auth@v3
         with:
-          credentials_json: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SEND_A_SECRET }}'
+          credentials_json: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_SEND_A_SECRET }}"
           create_credentials_file: true
           cleanup_credentials: true
 
