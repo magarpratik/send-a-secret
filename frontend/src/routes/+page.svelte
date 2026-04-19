@@ -39,7 +39,7 @@
 	}
 </script>
 
-<div class="flex min-h-screen flex-col items-center bg-gray-900 px-4 py-8">
+<div class="flex min-h-screen flex-col items-center bg-gray-900 px-4 py-4 sm:py-8">
 	<div class="mb-4 text-center">
 		<h1 class="text-2xl font-bold text-gray-200 sm:text-3xl">Send a secret!</h1>
 		<p class="text-sm font-light text-gray-400 sm:text-base">
@@ -83,7 +83,7 @@
 					{errorMessage || '\u00A0'}
 				</p>
 			</div>
-			<div class="w-full">
+			<div class="w-full pl-3">
 				<div class="mb-2 flex items-center gap-2">
 					<svg class="h-4 w-4 flex-shrink-0 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
 						<path
@@ -125,5 +125,10 @@
 				</button>
 			</div>
 		{/if}
+	</div>
+
+	<div class="mt-auto w-full border-t border-gray-800 pt-3 text-center text-gray-500 sm:pt-6">
+		<strong class="text-lg text-gray-300">{100}</strong>
+		<p class="text-xs">secrets sent</p>
 	</div>
 </div>
