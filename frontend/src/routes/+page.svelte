@@ -1,7 +1,7 @@
 <script>
 	import { onMount, onDestroy } from 'svelte';
 	import '../app.css';
-	import { storeSecret, encrypt, generateEncryptionKey, toBase64, getSecretsSent } from '$lib';
+	import { storeSecret, encrypt, generateEncryptionKey, toBase64, getTotalSecretsSent } from '$lib';
 	import CopyButton from '../components/CopyButton.svelte';
 	import ActionButton from '../components/ActionButton.svelte';
 
@@ -14,7 +14,7 @@
 
 	onMount(async () => {
 		try {
-			const { data } = await getSecretsSent();
+			const { data } = await getTotalSecretsSent();
 			totalSecretsSent = data.total;
 		} catch {
 			// Ignore errors for now

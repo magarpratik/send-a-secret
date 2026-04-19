@@ -1,7 +1,7 @@
 <script>
 	import { onMount, onDestroy } from 'svelte';
 	import { page } from '$app/state';
-	import { checkSecret, getSecret, decrypt, fromBase64 } from '$lib';
+	import { checkSecretExists as checkSecretExistsFn, getSecret, decrypt, fromBase64 } from '$lib';
 	import Spinner from '../../../components/Spinner.svelte';
 	import CopyButton from '../../../components/CopyButton.svelte';
 	import ActionButton from '../../../components/ActionButton.svelte';
@@ -26,7 +26,7 @@
 		if (!secretId) return;
 
 		try {
-			const { data } = await checkSecret({ secretId });
+			const { data } = await checkSecretExistsFn({ secretId });
 			secretExists = data.exists;
 		} catch {
 			errorMessage = 'Something went wrong. Please try again later.';

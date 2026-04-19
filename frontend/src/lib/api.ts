@@ -26,9 +26,9 @@ export const getSecret = httpsCallable<{ secretId: string }, { ciphertext: strin
 	'getSecret'
 );
 
-export const checkSecret = httpsCallable<{ secretId: string }, { exists: boolean }>(
+export const checkSecretExists = httpsCallable<{ secretId: string }, { exists: boolean }>(
 	functions,
-	'checkSecret'
+	'checkSecretExists'
 );
 
 export const storeSecret = httpsCallable<{ ciphertext: string; iv: string }, { secretId: string }>(
@@ -36,4 +36,7 @@ export const storeSecret = httpsCallable<{ ciphertext: string; iv: string }, { s
 	'storeSecret'
 );
 
-export const getSecretsSent = httpsCallable<void, { total: number }>(functions, 'getSecretsSent');
+export const getTotalSecretsSent = httpsCallable<void, { total: number }>(
+	functions,
+	'getTotalSecretsSent'
+);
