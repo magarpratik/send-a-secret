@@ -39,7 +39,7 @@
 	}
 </script>
 
-<div class="flex min-h-screen flex-col items-center bg-gray-900 px-4 py-4 sm:py-8">
+<div class="flex min-h-[100dvh] flex-col items-center bg-gray-900 px-4 py-4 sm:py-8">
 	<div class="mb-4 text-center">
 		<h1 class="text-2xl font-bold text-gray-200 sm:text-3xl">Send a secret!</h1>
 		<p class="text-sm font-light text-gray-400 sm:text-base">
