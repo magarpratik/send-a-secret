@@ -9,7 +9,7 @@ describe("Secret lifecycle", () => {
     const iv = "initialization-vector";
 
     // GET total secrets sent
-    const total1 = await request(`${baseUrl}/getSecretsSent`)
+    const total1 = await request(`${baseUrl}/getTotalSecretsSent`)
       .post("/")
       .send({ data: {} });
     expect(total1.body.result).toEqual({ total: 0 });
@@ -22,7 +22,7 @@ describe("Secret lifecycle", () => {
     const secretId = store.body.result.secretId;
 
     // CHECK secret exists
-    const check1 = await request(`${baseUrl}/checkSecret`)
+    const check1 = await request(`${baseUrl}/checkSecretExists`)
       .post("/")
       .send({ data: { secretId } });
 
@@ -36,7 +36,7 @@ describe("Secret lifecycle", () => {
     expect(get.body.result).toEqual({ ciphertext, iv });
 
     // CHECK again (should not exist)
-    const check2 = await request(`${baseUrl}/checkSecret`)
+    const check2 = await request(`${baseUrl}/checkSecretExists`)
       .post("/")
       .send({ data: { secretId } });
 
@@ -56,7 +56,7 @@ describe("Secret lifecycle", () => {
     });
 
     // GET total secrets sent again
-    const total2 = await request(`${baseUrl}/getSecretsSent`)
+    const total2 = await request(`${baseUrl}/getTotalSecretsSent`)
       .post("/")
       .send({ data: {} });
     expect(total2.body.result).toEqual({ total: 1 });

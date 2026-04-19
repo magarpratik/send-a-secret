@@ -3,12 +3,12 @@ import * as logger from "firebase-functions/logger";
 import { secretsRef } from "../firebase";
 import { isNonEmptyString } from "./utils/validation";
 
-export const checkSecret = onCall(
+export const checkSecretExists = onCall(
   { enforceAppCheck: !process.env.FUNCTIONS_EMULATOR },
   async (req) => {
     const { secretId } = req.data;
 
-    logger.info("checkSecret started", { secretId });
+    logger.info("checkSecretExists started", { secretId });
 
     if (!isNonEmptyString(secretId)) {
       throw new HttpsError(
@@ -20,7 +20,7 @@ export const checkSecret = onCall(
     const snap = await secretsRef.doc(secretId).get();
     const exists = !snap.data()?.consumed;
 
-    logger.info("checked secret successfully", {
+    logger.info("checked secret exists successfully", {
       secretId,
       exists,
     });

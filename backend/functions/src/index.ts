@@ -10,4 +10,4 @@ setGlobalOptions({
 export * from "./secrets/getSecret";
 export * from "./secrets/checkSecretExists";
 export * from "./secrets/storeSecret";
-export * from "./secrets/getSecretsSent";
+export * from "./secrets/getTotalSecretsSent";
