@@ -139,6 +139,6 @@
 
 	<div class="mt-auto w-full border-t border-gray-800 pt-3 text-center text-gray-500 sm:pt-6">
 		<strong class="text-lg text-gray-300">{totalSecretsSent}</strong>
-		<p class="text-xs">secrets shared</p>
+		<p class="text-xs">secrets shared so far 🚀</p>
 	</div>
 </div>
