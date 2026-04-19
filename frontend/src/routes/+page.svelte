@@ -83,7 +83,7 @@
 					{errorMessage || '\u00A0'}
 				</p>
 			</div>
-			<div class="w-full pl-3">
+			<div class="w-full pl-2">
 				<div class="mb-2 flex items-center gap-2">
 					<svg class="h-4 w-4 flex-shrink-0 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
 						<path
