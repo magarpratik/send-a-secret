@@ -6,25 +6,20 @@ import {
   FieldValue,
 } from "firebase-admin/firestore";
 import { isNonEmptyString } from "../utils/validation";
-
-export type SecretResponse = {
-  ciphertext: string;
-  iv: string;
-  consumed?: boolean;
-};
+import { SecretDoc } from "../types/secret";
 
 export const getSecret = async (
   secretsCollectionRef: CollectionReference,
   statsRef: DocumentReference,
   secretId: string,
-): Promise<SecretResponse> => {
+): Promise<SecretDoc> => {
   const secret = await secretsCollectionRef.firestore.runTransaction(
     async (tx) => {
       const docRef = secretsCollectionRef.doc(secretId);
       const snap = await tx.get(docRef);
       if (!snap.exists) return null;
 
-      const data = snap.data() as SecretResponse;
+      const data = snap.data() as SecretDoc;
 
       if (
         !data ||
@@ -34,8 +29,10 @@ export const getSecret = async (
         logger.error("corrupt secret data", { secretId });
         throw new HttpsError("internal", "corrupt secret data");
       }
-      
-      if (data.consumed === true) return null;
+
+      if (data.expiresAt.toDate() < new Date() || data.consumed === true) {
+        return null;
+      }
 
       tx.update(docRef, { consumed: true });
       tx.set(
@@ -49,6 +46,7 @@ export const getSecret = async (
       return {
         ciphertext: data.ciphertext,
         iv: data.iv,
+        expiresAt: data.expiresAt,
         consumed: true,
       };
     },

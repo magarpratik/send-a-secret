@@ -19,7 +19,7 @@ describe("STORE secret", () => {
       ciphertext: "cipher1",
       iv: "iv1",
       createdAt: Timestamp.fromDate(currentTime),
-      // Expires in 24 hours
+      // expires in 24 hours
       expiresAt: Timestamp.fromDate(
         new Date(currentTime.getTime() + 24 * 60 * 60 * 1000),
       ),

@@ -26,7 +26,7 @@ export const getSecret = onCall(
     );
 
     logger.info("retrieved secret successfully", { secretId });
-    
+
     return { ciphertext, iv };
   },
 );

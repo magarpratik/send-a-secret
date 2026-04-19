@@ -2,6 +2,7 @@ import { HttpsError, onCall } from "firebase-functions/https";
 import * as logger from "firebase-functions/logger";
 import { secretsRef } from "../firebase";
 import { isNonEmptyString } from "./utils/validation";
+import { checkSecretExists as checkSecretsExistsService } from "./services/checkSecretExists";
 
 export const checkSecretExists = onCall(
   { enforceAppCheck: !process.env.FUNCTIONS_EMULATOR },
@@ -17,8 +18,7 @@ export const checkSecretExists = onCall(
       );
     }
 
-    const snap = await secretsRef.doc(secretId).get();
-    const exists = !snap.data()?.consumed;
+    const exists = await checkSecretsExistsService(secretsRef.doc(secretId));
 
     logger.info("checked secret exists successfully", {
       secretId,
