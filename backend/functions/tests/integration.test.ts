@@ -9,7 +9,7 @@ describe("Secret lifecycle", () => {
     const iv = "initialization-vector";
 
     // GET total secrets sent
-    const total1 = await request(`${baseUrl}/getTotal`)
+    const total1 = await request(`${baseUrl}/getSecretsSent`)
       .post("/")
       .send({ data: {} });
     expect(total1.body.result).toEqual({ total: 0 });
@@ -56,7 +56,7 @@ describe("Secret lifecycle", () => {
     });
 
     // GET total secrets sent again
-    const total2 = await request(`${baseUrl}/getTotal`)
+    const total2 = await request(`${baseUrl}/getSecretsSent`)
       .post("/")
       .send({ data: {} });
     expect(total2.body.result).toEqual({ total: 1 });

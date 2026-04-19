@@ -2,7 +2,7 @@ import { onCall } from "firebase-functions/https";
 import * as logger from "firebase-functions/logger";
 import { statsRef } from "../firebase";
 
-export const getTotal = onCall(
+export const getSecretsSent = onCall(
   { enforceAppCheck: !process.env.FUNCTIONS_EMULATOR },
   async () => {
     logger.info("getTotal started");
