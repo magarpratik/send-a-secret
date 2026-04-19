@@ -35,3 +35,5 @@ export const storeSecret = httpsCallable<{ ciphertext: string; iv: string }, { s
 	functions,
 	'storeSecret'
 );
+
+export const getSecretsSent = httpsCallable<void, { total: number }>(functions, 'getSecretsSent');

@@ -1,15 +1,25 @@
 <script>
-	import { onDestroy } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	import '../app.css';
-	import { storeSecret, encrypt, generateEncryptionKey, toBase64 } from '$lib';
+	import { storeSecret, encrypt, generateEncryptionKey, toBase64, getSecretsSent } from '$lib';
 	import CopyButton from '../components/CopyButton.svelte';
 	import ActionButton from '../components/ActionButton.svelte';
 
 	let secret = $state('');
 	let link = $state('');
+	let totalSecretsSent = $state(0);
 
 	let generateLinkLoading = $state(false);
 	let errorMessage = $state('');
+
+	onMount(async () => {
+		try {
+			const { data } = await getSecretsSent();
+			totalSecretsSent = data.total;
+		} catch {
+			// Ignore errors for now
+		}
+	});
 
 	onDestroy(() => {
 		secret = '';
@@ -128,7 +138,7 @@
 	</div>
 
 	<div class="mt-auto w-full border-t border-gray-800 pt-3 text-center text-gray-500 sm:pt-6">
-		<strong class="text-lg text-gray-300">{100}</strong>
+		<strong class="text-lg text-gray-300">{totalSecretsSent}</strong>
 		<p class="text-xs">secrets sent</p>
 	</div>
 </div>
