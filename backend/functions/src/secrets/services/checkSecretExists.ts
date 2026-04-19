@@ -8,7 +8,7 @@ export const checkSecretExists = async (
 
   const exists =
     !!data &&
-    data.consumed === false &&
+    data.consumed !== true &&
     data.expiresAt?.toDate?.() > new Date();
 
   return exists;
