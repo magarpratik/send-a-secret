@@ -15,10 +15,14 @@ describe("STORE secret", () => {
     const id = await storeSecret(secretsRef, statsRef, "cipher1", "iv1", now);
 
     const secretSnap = await secretsRef.doc(id).get();
-    expect(secretSnap.data()).toMatchObject({
+    expect(secretSnap.data()).toEqual({
       ciphertext: "cipher1",
       iv: "iv1",
       createdAt: Timestamp.fromDate(currentTime),
+      // Expires in 24 hours
+      expiresAt: Timestamp.fromDate(
+        new Date(currentTime.getTime() + 24 * 60 * 60 * 1000),
+      ),
     });
 
     const snap1 = await statsRef.get();

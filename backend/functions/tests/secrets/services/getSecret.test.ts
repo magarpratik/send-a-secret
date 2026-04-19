@@ -15,7 +15,7 @@ describe("CONSUME secret", () => {
     const id2 = await storeSecret(secretsRef, statsRef, "cipher2", "iv2", now);
 
     const secret1 = await getSecret(secretsRef, statsRef, id1);
-    expect(secret1).toMatchObject({
+    expect(secret1).toEqual({
       ciphertext: "cipher1",
       iv: "iv1",
       consumed: true,
@@ -28,7 +28,7 @@ describe("CONSUME secret", () => {
     expect(stats1.data()?.totalSecretsConsumed).toBe(1);
 
     const secret2 = await getSecret(secretsRef, statsRef, id2);
-    expect(secret2).toMatchObject({
+    expect(secret2).toEqual({
       ciphertext: "cipher2",
       iv: "iv2",
       consumed: true,

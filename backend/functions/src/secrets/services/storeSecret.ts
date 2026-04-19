@@ -20,6 +20,7 @@ export const storeSecret = async (
     ciphertext,
     iv,
     createdAt: now(),
+    expiresAt: new Date(now().getTime() + 24 * 60 * 60 * 1000), // Expires in 24 hours
   });
 
   batch.set(
