@@ -59,7 +59,7 @@
 	</div>
 
 	<div
-		class="flex w-full max-w-lg flex-grow -translate-y-12 flex-col items-center justify-center space-y-5 sm:-translate-y-20 sm:space-y-6"
+		class="flex w-full max-w-lg flex-grow flex-col items-center justify-center space-y-0 pb-10 sm:space-y-5 sm:pb-40"
 	>
 		{#if !link}
 			<div class="w-full space-y-4">
