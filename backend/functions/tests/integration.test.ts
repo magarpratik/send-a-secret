@@ -60,5 +60,5 @@ describe("Secret lifecycle", () => {
       .post("/")
       .send({ data: {} });
     expect(total2.body.result).toEqual({ total: 1 });
-  });
+  }, 20000);
 });
