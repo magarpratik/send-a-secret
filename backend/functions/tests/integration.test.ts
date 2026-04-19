@@ -8,6 +8,12 @@ describe("Secret lifecycle", () => {
     const ciphertext = "encrypted-secret";
     const iv = "initialization-vector";
 
+    // GET total secrets sent
+    const total1 = await request(`${baseUrl}/getTotal`)
+      .post("/")
+      .send({ data: {} });
+    expect(total1.body.result).toEqual({ total: 0 });
+
     // STORE secret
     const store = await request(`${baseUrl}/storeSecret`)
       .post("/")
@@ -48,5 +54,11 @@ describe("Secret lifecycle", () => {
         message: "secret not found",
       },
     });
+
+    // GET total secrets sent again
+    const total2 = await request(`${baseUrl}/getTotal`)
+      .post("/")
+      .send({ data: {} });
+    expect(total2.body.result).toEqual({ total: 1 });
   });
 });
