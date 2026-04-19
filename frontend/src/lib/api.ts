@@ -21,7 +21,7 @@ if (browser) {
 
 const functions = getFunctions(app, 'europe-west1');
 
-export const getSecret = httpsCallable<{ secretId: string }, { ciphertext: string }>(
+export const getSecret = httpsCallable<{ secretId: string }, { ciphertext: string; iv: string }>(
 	functions,
 	'getSecret'
 );

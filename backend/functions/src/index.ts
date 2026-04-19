@@ -8,5 +8,5 @@ setGlobalOptions({
 });
 
 export * from "./secrets/getSecret";
-export * from "./secrets/checkSecret";
+export * from "./secrets/checkSecretExists";
 export * from "./secrets/storeSecret";

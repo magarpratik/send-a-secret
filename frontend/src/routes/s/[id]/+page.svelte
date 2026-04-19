@@ -1,7 +1,7 @@
 <script>
 	import { onMount, onDestroy } from 'svelte';
 	import { page } from '$app/state';
-	import { checkSecret, getSecret } from '$lib';
+	import { checkSecret, getSecret, decrypt, fromBase64 } from '$lib';
 	import Spinner from '../../../components/Spinner.svelte';
 	import CopyButton from '../../../components/CopyButton.svelte';
 	import ActionButton from '../../../components/ActionButton.svelte';
@@ -49,18 +49,15 @@
 		getSecretLoading = true;
 
 		try {
-			// const {
-			// 	data: { ciphertext, iv }
-			// } = await getSecret({ secretId });
+			const {
+				data: { ciphertext, iv }
+			} = await getSecret({ secretId });
 
-			// const keyBytes = fromBase64(keyBase64);
-			// const ivBytes = fromBase64(iv);
-			// const ciphertextBytes = fromBase64(ciphertext);
+			const keyBytes = fromBase64(keyBase64);
+			const ivBytes = fromBase64(iv);
+			const ciphertextBytes = fromBase64(ciphertext);
 
-			// secret = await decrypt(ciphertextBytes, keyBytes, ivBytes);
-
-			const { data } = await getSecret({ secretId });
-			secret = data.ciphertext;
+			secret = await decrypt(ciphertextBytes, keyBytes, ivBytes);
 		} catch {
 			errorMessage = 'Unable to retrieve your secret. Please try again later.';
 		} finally {

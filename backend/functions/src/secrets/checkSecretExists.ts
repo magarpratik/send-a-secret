@@ -1,32 +1,30 @@
 import { HttpsError, onCall } from "firebase-functions/https";
 import * as logger from "firebase-functions/logger";
-import { secretsRef, statsRef } from "../firebase";
-import { getSecret as getSecretService } from "../secrets/services/getSecret";
+import { secretsRef } from "../firebase";
 import { isNonEmptyString } from "./utils/validation";
 
-export const getSecret = onCall(
+export const checkSecret = onCall(
   { enforceAppCheck: !process.env.FUNCTIONS_EMULATOR },
   async (req) => {
     const { secretId } = req.data;
 
-    logger.info("getSecret started", { secretId });
+    logger.info("checkSecret started", { secretId });
 
     if (!isNonEmptyString(secretId)) {
-      logger.warn("invalid secretId provided");
       throw new HttpsError(
         "invalid-argument",
         "secretId must be a non-empty string",
       );
     }
 
-    const { ciphertext, iv } = await getSecretService(
-      secretsRef,
-      statsRef,
-      secretId,
-    );
+    const snap = await secretsRef.doc(secretId).get();
+    const exists = !snap.data()?.consumed;
 
-    logger.info("retrieved secret successfully", { secretId });
-    
-    return { ciphertext, iv };
+    logger.info("checked secret successfully", {
+      secretId,
+      exists,
+    });
+
+    return { exists };
   },
 );
