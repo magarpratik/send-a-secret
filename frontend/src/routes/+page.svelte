@@ -51,21 +51,15 @@
 
 <div class="flex min-h-[100dvh] flex-col items-center bg-gray-900 px-4 py-4 sm:py-8">
 	<div class="mb-4 text-center">
-		<h1 class="text-2xl font-bold text-gray-200 sm:text-3xl">Send a secret!</h1>
+		<h1 class="text-2xl font-bold text-gray-200 sm:text-3xl">Send a Secret!</h1>
 		<p class="text-sm font-light text-gray-400 sm:text-base">
-			Share secrets securely using self-destructing links
+			Share secrets securely using one-time-use links
 		</p>
 		<a
 			href="https://github.com/magarpratik/send-a-secret"
 			target="_blank"
 			class="text-xs text-blue-400 hover:text-blue-300">GitHub</a
 		>
-		<div
-			class="rounded border border-yellow-500 bg-yellow-600/20 p-2 text-xs text-yellow-200 sm:text-sm"
-		>
-			⚠️ This app is under active development. Secrets may not be fully secure. Use at your own
-			risk.
-		</div>
 	</div>
 
 	<div

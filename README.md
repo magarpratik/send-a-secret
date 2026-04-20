@@ -10,7 +10,7 @@ No more sending secrets over email, Slack message or a Teams chat!
 
 1. **End-to-End Encryption:** Only the recipient can view the secret
 2. **Single Use:** Secrets are deleted forever after being viewed once
-3. **Self-Destructing:** Secrets are deleted forever after 10 minutes
+3. **Self-Destructing:** Secrets are deleted forever after 24 hours
 
 ## Try it now
 
