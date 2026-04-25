@@ -50,7 +50,7 @@
 </script>
 
 <div class="flex min-h-[100dvh] flex-col items-center bg-gray-900 px-4 py-4 sm:py-8">
-	<div class="mb-4 text-center">
+	<div class="mb-2 text-center">
 		<h1 class="text-2xl font-bold text-gray-200 sm:text-3xl">Send a Secret!</h1>
 		<p class="text-sm font-light text-gray-400 sm:text-base">
 			Share secrets securely using one-time-use links
@@ -63,7 +63,7 @@
 	</div>
 
 	<div
-		class="flex w-full max-w-lg flex-grow flex-col items-center justify-center space-y-0 pb-10 sm:space-y-5 sm:pb-40"
+		class="flex w-full max-w-lg flex-grow flex-col items-center justify-center space-y-0 pb-10 sm:space-y-5 sm:pb-5"
 	>
 		{#if !link}
 			<div class="w-full space-y-4">
