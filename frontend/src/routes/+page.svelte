@@ -104,8 +104,8 @@
 					<li>Share the link with your recipient</li>
 				</ol>
 				<p class="text-xs text-gray-500">
-					Your secret is encrypted end-to-end — not even we can read it. It's deleted after being
-					viewed or automatically after 24 hours.
+					Your secret is encrypted end-to-end — not even we can read it. The recipient can only view
+					it once and the link expires 24 hours after creation.
 				</p>
 			</div>
 		{:else}
