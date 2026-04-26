@@ -105,7 +105,7 @@
 				</ol>
 				<p class="text-xs text-gray-500">
 					Your secret is encrypted end-to-end — not even we can read it. The recipient can only view
-					it once and the link expires 24 hours after creation.
+					it once and the link expires automatically after 24 hours from creation.
 				</p>
 			</div>
 		{:else}
